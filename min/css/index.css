@@ -40,3 +40,28 @@ body {
   background-color: var(--bg);
   color: var(--fg);
 }
+
+header {
+  width: 100%;
+  height: 3rem;
+  background-color: var(--bg-sec);
+  border-radius: 0 0 1rem 1rem;
+  display: flex;
+  justify-content: end;
+
+  > #color-scheme {
+    background-color: var(--bg-sec);
+    border: .5rem;
+    min-width: 20px;
+    max-width: 20px;
+    flex-basis: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  * > i:hover {
+    filter: brightness(120%);
+  }
+}
