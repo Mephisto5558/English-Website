@@ -1,0 +1,42 @@
+:root {
+  --bg-dark: #121;
+  --bg-sec-dark: #4a545c;
+  --fg-dark: #fff;
+
+  --bg-light: #f0f0f0;
+  --bg-sec-light: #333333;
+  --fg-light: #000;
+
+  /* Default */
+  --bg: var(--bg-dark);
+  --bg-sec: var(--bg-sec-dark);
+  --fg: var(--fg-dark);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: var(--bg-light);
+    --bg-sec: var(--bg-sec-light);
+    --fg: var(--fg-light)
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--bg-dark);
+    --bg-sec: var(--bg-sec-dark);
+    --fg: var(--fg-dark)
+  }
+}
+
+[class^='fa'] {
+  background-color: transparent;
+  color: var(--fg);
+  position: absolute;
+  transform: translate(-50%, -50%)
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}
