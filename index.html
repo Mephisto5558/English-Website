@@ -4,26 +4,48 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     
-    <link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="img/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="img/favicon/site.webmanifest" />
+    <link rel='icon' type='image/png' href='/img/favicon/favicon-96x96.png' sizes='96x96' />
+    <link rel='icon' type='image/svg+xml' href='/img/favicon/favicon.svg' />
+    <link rel='shortcut icon' href='img/favicon/favicon.ico' />
+    <link rel='apple-touch-icon' sizes='180x180' href='img/favicon/apple-touch-icon.png' />
+    <link rel='manifest' href='img/favicon/site.webmanifest' />
 
     <title>Together, Not Alone</title>
     <meta name='description'
       content='From IT rivals to vital partners, this dialogue shows why Application Developers and System Integrators are ultimately "Together, not alone"'>
+    <script>
+      globalThis.local = ['localhost', '127.0.0.1', ''].includes(location.hostname);
+      
+      (() => {
+        const css = document.createElement('link');
+        css.rel = 'stylesheet';
+        css.href = `${globalThis.local ? '' : 'min/'}css/index.css`;
+      
+        document.head.append(css);
+        document.currentScript?.remove();
+      })();
+    </script>
 
-    <link rel='stylesheet' href='min/css/index.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css'
       crossorigin='anonymous' />
   </noscript>
   </head>
   <body>
-    <script src='min/js/index.js'></script>
+    <script>
+      (() => {
+        const script = document.createElement('script');
+        script.src = `${globalThis.local ? '' : 'min/'}js/index.js`;
 
+        delete globalThis.local;
+
+        document.body.append(script);
+        document.currentScript?.remove();
+      })();
+    </script>
     <header>
-      <button id='color-scheme'><i class="fa-regular fa-lightbulb"></i></div>
+      <button id='toggle-scheme' onclick='switchTheme()'>
+        <i class='fa-regular fa-lightbulb'></i>
+      </button>
     </header>
     <main>
 
