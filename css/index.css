@@ -43,6 +43,10 @@ button:hover {
   background-color: var(--bg-focused);
 }
 
+.hidden {
+  display: none;
+}
+
 body {
   background-color: var(--bg);
   color: var(--fg);
@@ -64,5 +68,17 @@ header {
     min-width: 2.5rem;
     height: 2.5rem;
     cursor: pointer;
+  }
+}
+
+main > p {
+  text-align: justify;
+  padding: 1rem;
+
+  &.person1 {
+    color: lightgreen;
+  }
+  &.person2 {
+    color: lightblue;
   }
 }
