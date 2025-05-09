@@ -1,44 +1,52 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
 :root {
   --bg-dark: #121;
   --bg-sec-dark: #4a545c;
+  --bg-focused-dark: #888;
   --fg-dark: #fff;
 
   --bg-light: #f0f0f0;
-  --bg-sec-light: #333333;
+  --bg-sec-light: #c3c3c3;
+  --bg-focused-light: #5e5e5e;
   --fg-light: #000;
 
   /* Default */
   --bg: var(--bg-dark);
   --bg-sec: var(--bg-sec-dark);
+  --bg-focused: var(--bg-focused-dark);
   --fg: var(--fg-dark);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg: var(--bg-light);
-    --bg-sec: var(--bg-sec-light);
-    --fg: var(--fg-light)
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: var(--bg-dark);
-    --bg-sec: var(--bg-sec-dark);
-    --fg: var(--fg-dark)
-  }
+* {
+  background-color: unset;
+  color: unset;
 }
 
 [class^='fa'] {
   background-color: transparent;
-  color: var(--fg);
+  color: var(--fg) !important;
   position: absolute;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%) !important;
+  font-size: 100% !important;
+}
+
+button:hover {
+  background-color: var(--bg-focused);
 }
 
 body {
   background-color: var(--bg);
   color: var(--fg);
+  font-family: sans-serif;
 }
 
 header {
@@ -49,19 +57,12 @@ header {
   display: flex;
   justify-content: end;
 
-  > #color-scheme {
-    background-color: var(--bg-sec);
-    border: .5rem;
-    min-width: 20px;
-    max-width: 20px;
-    flex-basis: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  * > i:hover {
-    filter: brightness(120%);
+  > #toggle-scheme {
+    border: none;
+    border-radius: .5rem;
+    padding: .5rem;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
   }
 }
